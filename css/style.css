@@ -140,15 +140,26 @@ article.evento {
     background-color: #fff;
     border-radius: 5px;
     padding: 30px 50px;
-    width: 60%;
+    width: 50%;
     max-width: 100%;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     display: flex;
 }
 
+.modal-conteudo {
+    width: 90%;
+}
+
 #close{
     width: 5%;
     height: 5%;
+    background-color: #fff;
+    color: black;
+    font-size: 20px;
+}
+
+#close:hover {
+    color: red;
 }
 
 footer nav ul{
@@ -165,4 +176,48 @@ footer nav ul li  {
 .form-reservas {
     border-bottom: 2px solid #000;
     padding-bottom: 25px;
+}
+
+/* Modal reservas */
+#reservas {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.form-input {
+    width: 50%;
+    margin-top: 20px;
+}
+
+.form-input input {
+    width: 80%;
+}
+
+.form-input select {
+    width: 80%;
+    padding: 5px 3px;
+}
+
+#form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    width: 90%;
+    gap: 10px;
+}
+
+#form-buttons button, #close {
+    border: none;
+}
+
+#form-buttons button {
+    border-radius: 10px;
+    padding: 5px 10px;
+
+}
+
+
+#form-buttons button:nth-child(2) {
+    background-color: #C2185B;
+    color: #fff;
 }
