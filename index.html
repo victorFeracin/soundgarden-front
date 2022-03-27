@@ -9,6 +9,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+    <script src="./js/index.js" defer></script>
+    <script src="https://kit.fontawesome.com/b2fc20a24a.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -18,8 +20,32 @@
     <main>
         <section class="full d-flex justify-content-center align-items-center"
             style="background-color: #F8BBD0; color: #fff">
-            <div class="text-center">
-                <h1>Adicione um banner maneiro aqui</h1>
+            <div class="slide">
+                <div class="slides">
+                    <div id="voltar" class="slide-btn">
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div id="avancar" class="slide-btn">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+
+                    <div id="atual" class="images">
+                        <img src="./img/show-exemplo1.jpg" alt="Imagem do slider">
+                    </div>
+                    <div  class="images">
+                        <img src="./img/show-exemplo2.jpg" alt="Imagem do slider">
+                    </div>
+                    <div  class="images">
+                        <img src="./img/show-exemplo3.jpg" alt="Imagem do slider">
+                    </div>
+                    <div  class="images">
+                        <img src="./img/show-exemplo4.jpg" alt="Imagem do slider">
+                    </div>
+                    
+                </div>
+                <div class="balls">
+                   
+                </div>
             </div>
         </section>
         <section class="full">
@@ -33,7 +59,7 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro aperiam sunt quo similique,
                         dolorum consectetur inventore ipsam, officiis neque natus eius harum alias quidem. Possimus
                         nobis in inventore tenetur asperiores.</p>
-                    <a href="#" class="btn btn-primary">reservar ingresso</a>
+                    <button class="btn btn-primary">reservar ingresso</button>
                 </article>
                 <article class="evento card p-5 m-3">
                     <h2>nome do evento - 05/03/2022</h2>
@@ -41,7 +67,7 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro aperiam sunt quo similique,
                         dolorum consectetur inventore ipsam, officiis neque natus eius harum alias quidem. Possimus
                         nobis in inventore tenetur asperiores.</p>
-                    <a href="#" class="btn btn-primary">reservar ingresso</a>
+                    <button class="btn btn-primary">reservar ingresso</button>
                 </article>
                 <article class="evento card p-5 m-3">
                     <h2>nome do evento - 05/03/2022</h2>
@@ -49,11 +75,23 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro aperiam sunt quo similique,
                         dolorum consectetur inventore ipsam, officiis neque natus eius harum alias quidem. Possimus
                         nobis in inventore tenetur asperiores.</p>
-                    <a href="#" class="btn btn-primary">reservar ingresso</a>
+                    <button  class="btn btn-primary">reservar ingresso</button>
                 </article>
             </div>
             <div class="container text-center">
                 <a href="eventos.html" class="btn btn-secondary">ver todos os eventos</a>
+            </div>
+            <div class="modal-container" id="modal_container">
+                <div class="modal-class">
+                    <div class="modal-conteudo">
+                    <h1>Modals are </h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, repellendus, sed quas hic nihil fugit quos nemo, explicabo reiciendis voluptatum nesciunt debitis error!</p>
+                    </div>
+                    <button id="close">X</button>
+                </div>
+                
+                
+                
             </div>
         </section>
         <section class="full d-flex justify-content-center align-items-center"

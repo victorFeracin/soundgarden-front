@@ -26,9 +26,94 @@ aside {
     border-color: #C2185B;
 }
 
+button {
+    cursor: pointer;
+}
+
+.slide {
+    width: 1024px;
+    height: 576px;
+    overflow: hidden;
+    border-radius: 15px;
+    transition: all 0.4s;
+}
+
+.slides {
+    /* width: 5120px; */
+    display: flex;
+
+}
+
+.images img{
+    width: 1024px;
+    height: 576px;
+}
+
+#atual {
+    margin-left: 0;
+    transition: all 2s;
+}
+
+.slide-btn {
+    position: absolute;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.4s;
+    font-size: 1.7em;
+    margin-top: -5px;
+}
+
+.slide-btn:hover {
+    transform: scale(1.5);
+}
+
+#voltar {
+    top: 50%;
+    left: 15%;
+}
+
+#avancar {
+    top: 50%;
+    right: 15%;
+}
+
+.balls {
+    position: absolute;
+    width: 1024px;
+    display: flex;
+    justify-content: center;
+    margin-top: -45px;
+}
+
+.balls div {
+    transition: all 0.5s;
+    border: 3px solid #fff;
+    padding: 6px;
+    border-radius: 50%;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.balls div:hover {
+    background: #fff;
+}
+
+.imageAtual {
+    transition: all 0.5s;
+    background: #fff;
+}
+
+
 main.login {
     width: 400px;
 }
+
+
 
 section.full{
     width: 100%;
@@ -38,6 +123,32 @@ section.full{
 
 article.evento {
     width: 350px;
+}
+
+.modal-container {
+    background-color: rgba(0, 0,  0, 0.3);
+    position: fixed;
+    display: none;
+    top:0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+.modal-class {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 30px 50px;
+    width: 60%;
+    max-width: 100%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    display: flex;
+}
+
+#close{
+    width: 5%;
+    height: 5%;
 }
 
 footer nav ul{
