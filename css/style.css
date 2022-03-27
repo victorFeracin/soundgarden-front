@@ -159,3 +159,10 @@ footer nav ul{
 footer nav ul li  {
     padding: 10px;
 }
+
+/*Reservas*/
+
+.form-reservas {
+    border-bottom: 2px solid #000;
+    padding-bottom: 25px;
+}
