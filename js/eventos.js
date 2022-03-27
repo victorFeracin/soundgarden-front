@@ -21,7 +21,7 @@ var divAtual = document.getElementById("lista-eventos");
     console.log(response);
 
     response.forEach(item => {
-        newDate = new Date(item.scheduled)
+        newDate = `${item.scheduled[8]}${item.scheduled[9]}/${item.scheduled[5]}${item.scheduled[6]}/${item.scheduled[0]}${item.scheduled[1]}${item.scheduled[2]}${item.scheduled[3]} `  
         divAtual.innerHTML += `<article class="evento card p-5 m-3"><h2>${item.name} - ${newDate}</h2>
         <h4>${item.attractions}</h4>
         <p>${item.description}</p>
