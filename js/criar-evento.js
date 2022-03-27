@@ -7,41 +7,45 @@ const getLotacao = document.querySelector('#lotacao');
 
 const BASE_URL = "https://xp41-soundgarden-api.herokuapp.com";
 
-const sendBttn = document.querySelector('.btn-primary');
+const form = document.querySelector('form');
 
-sendBttn.onclick = async (event) => {
+
+form.onsubmit = async (event) => {
   event.preventDefault();
   try {
+
+    const brData = swapData(getData.value);
+
     const resposta = await fetch(`${BASE_URL}/events`, {
       method: 'POST',
-      headers: {
-        "Content-Type": "application/json",
-      },
-  
+
       body: JSON.stringify({
         name: getNome.value,
         poster: getPoster.value,
         attractions: getAtracoes.value.split(','),
         description: getDescricao.value,
-        scheduled: new Date(getData.value).toISOString(),
+        scheduled: brData.toISOString(),
         number_tickets: parseInt(getLotacao.value)
-      })
-    });
-  
-    console.log(getNome.value);
-    console.log(getPoster.value);
-    console.log(getAtracoes.value);
-    console.log(getDescricao.value);
-    console.log(getData.value);
-    console.log(getLotacao.value);
-    console.log(typeof(getLotacao));
+      }),
 
-  
-  
-    console.log(resposta);
-  }catch(err) {
-    alert(err);
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const respostaConteudo = await resposta.json();
+    console.log(respostaConteudo);
+    form.reset();
+    alert(`Evento cadastrado com sucesso!`);
+    
+  } catch(err) {
+    alert(`ERRO: ${err}`);
   }
   
 }
 
+function swapData(data) {
+  const [dd, mm, aa] = data.split('/');
+  const newData = new Date([mm, dd, aa]);
+  return newData;
+}
