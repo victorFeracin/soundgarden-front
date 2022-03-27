@@ -1,6 +1,6 @@
 const BASE_URL = "https://xp41-soundgarden-api.herokuapp.com";
 
-const trAtual = document.getElementById("lista-eventos-gerenciamento");
+const trAtual = document.getElementById("tabela-eventos");
 
 window.onload = async () => {
     const resposta = await fetch(`${BASE_URL}/events`, {
