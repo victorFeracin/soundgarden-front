@@ -5,6 +5,10 @@ var divAtual = document.getElementById("lista-eventos");
 
 const btnClose = document.querySelector('#close')
 const modalContainer = document.querySelector('#modal_container')
+const botaoReserva = document.querySelector('#concluirReserva')
+const inputNome = document.querySelector('#nomeCompleto')
+const inputEmail = document.querySelector('#email')
+const inputTickets = document.querySelector('#ticket')
 
 
 
@@ -29,7 +33,7 @@ const modalContainer = document.querySelector('#modal_container')
         divAtual.innerHTML += `<article class="evento card p-5 m-3"><h2>${item.name} - ${newDate}</h2>
         <h4>${item.attractions}</h4>
         <p>${item.description}</p>
-        <button class="btn btn-primary">reservar ingresso</button>
+        <button class="btn btn-primary" value=${item._id}>reservar ingresso</button>
         </article>`
 
        
@@ -44,7 +48,30 @@ const modalContainer = document.querySelector('#modal_container')
           modalContainer.style.display = 'flex'
           modalContainer.style.justifyContent = 'center'
           modalContainer.style.alignItems = 'center'
+          botaoReserva.value = botao[i].value
       })
+      }
+
+      botaoReserva.onclick = async (evento) => {
+            evento.preventDefault()
+            const respostaBotao = await fetch(`${BASE_URL}/bookings`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    owner_name: inputNome.value,
+                    owner_email: inputEmail.value,
+                    number_tickets: Number(inputTickets.value),
+                    event_id: botaoReserva.value
+
+                })
+
+            })
+
+            const respostaFormatada = await respostaBotao.json();
+
+            console.log(respostaFormatada);
       }
       
       btnClose.addEventListener('click', ()=> {
