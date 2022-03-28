@@ -73,6 +73,44 @@
                     <a href="#" class="btn btn-primary">reservar ingresso</a>
                 </article>
             </div>
+            <div class="modal-container" id="modal_container">
+                <div class="modal-class">
+                    <div class="modal-conteudo">
+                    <h1>Reserve seu ingresso </h1>
+                    <form id="reservas">
+                        <div class="form-input">
+                        <label for="nomeCompleto">Nome Completo</label><br>
+                        <input type="text" id="nomeCompleto">
+                        </div >
+                        <div class="form-input">
+                        <label for="email">Email</label><br>
+                        <input type="email"><br>
+                        </div>
+                        <div class="form-input">
+                        <label>Evento</label><br>
+                        <select>
+                            <option value="">Exemplo</option>
+                            <option value="">Exemplo</option>
+                            <option value="">Exemplo</option>
+                        </select>
+                        </div>
+                        <div class="form-input">
+                        <label for="tickets">Quantidade</label><br>
+                        <input type="number" id="ticket" min="1" max="10">
+                        </div>
+                        
+                    </form>
+                    <div id="form-buttons">
+                    <button>cancelar</button>
+                    <button>concluir reserva</button>
+                    </div>
+                    </div>
+                    <button id="close">X</button>
+                </div>
+                
+                
+                
+            </div>
         </section>
         <section class="full d-flex justify-content-center align-items-center"
             style="background-color: #f2f2f2; color: #555">

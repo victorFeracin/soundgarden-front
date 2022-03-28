@@ -2,7 +2,11 @@
 const BASE_URL = "https://xp41-soundgarden-api.herokuapp.com";
 
 var divAtual = document.getElementById("lista-eventos");
-  
+
+const btnClose = document.querySelector('#close')
+const modalContainer = document.querySelector('#modal_container')
+
+
 
 
   // adiciona o novo elemento criado e seu conteúdo ao DOM
@@ -25,9 +29,31 @@ var divAtual = document.getElementById("lista-eventos");
         divAtual.innerHTML += `<article class="evento card p-5 m-3"><h2>${item.name} - ${newDate}</h2>
         <h4>${item.attractions}</h4>
         <p>${item.description}</p>
-        <a href="#" class="btn btn-primary">reservar ingresso</a>
+        <button class="btn btn-primary">reservar ingresso</button>
         </article>`
+
+       
+       
     })
+  
+    const botao = document.querySelectorAll('button')
+    console.log(botao);
+    
+    for(let i=0; i < botao.length; i++) {
+      botao[i].addEventListener('click', ()=> {
+          modalContainer.style.display = 'flex'
+          modalContainer.style.justifyContent = 'center'
+          modalContainer.style.alignItems = 'center'
+      })
+      }
+      
+      btnClose.addEventListener('click', ()=> {
+          modalContainer.style.display = 'none'
+      })
+      
+      
+  
 
   }
 
+  
