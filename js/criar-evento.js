@@ -16,6 +16,7 @@ form.onsubmit = async (event) => {
 
     const brData = swapData(getData.value);
 
+
     const resposta = await fetch(`${BASE_URL}/events`, {
       method: 'POST',
 
