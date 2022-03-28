@@ -13,11 +13,12 @@ window.onload = async () => {
     const response = await resposta.json()
     console.log(response);
 
+    let sequencia = 4
 
     response.forEach(item => {
         newDate = `${item.scheduled[8]}${item.scheduled[9]}/${item.scheduled[5]}${item.scheduled[6]}/${item.scheduled[0]}${item.scheduled[1]}${item.scheduled[2]}${item.scheduled[3]}  ${item.scheduled[11]}${item.scheduled[12]}:${item.scheduled[14]}${item.scheduled[15]}`
         trAtual.innerHTML += `<tr>
-        <th scope="row">${th.[index++]}</th>
+        <th scope="row">${sequencia++}</th>
         <td>${newDate}</td>
         <td>${item.name}</td>
         <td>${item.attractions}</td>
