@@ -10,7 +10,7 @@ const inputNome = document.querySelector('#nomeCompleto')
 const inputEmail = document.querySelector('#email')
 const inputTickets = document.querySelector('#ticket')
 
-
+const form = document.querySelector('#reservas');
 
 
   // adiciona o novo elemento criado e seu conteúdo ao DOM
@@ -36,8 +36,6 @@ const inputTickets = document.querySelector('#ticket')
         <button class="btn btn-primary" value=${item._id}>reservar ingresso</button>
         </article>`
 
-       
-       
     })
   
     const botao = document.querySelectorAll('button')
@@ -54,24 +52,30 @@ const inputTickets = document.querySelector('#ticket')
 
       botaoReserva.onclick = async (evento) => {
             evento.preventDefault()
-            const respostaBotao = await fetch(`${BASE_URL}/bookings`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    owner_name: inputNome.value,
-                    owner_email: inputEmail.value,
-                    number_tickets: Number(inputTickets.value),
-                    event_id: botaoReserva.value
-
+            try {
+                const respostaBotao = await fetch(`${BASE_URL}/bookings`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        owner_name: inputNome.value,
+                        owner_email: inputEmail.value,
+                        number_tickets: Number(inputTickets.value),
+                        event_id: botaoReserva.value
+    
+                    })
+    
                 })
-
-            })
-
-            const respostaFormatada = await respostaBotao.json();
-
-            console.log(respostaFormatada);
+    
+                const respostaFormatada = await respostaBotao.json();
+                console.log(respostaFormatada);
+                alert('Reserva realizada com sucesso!');
+            } catch(err) {
+                console.log(`ERRO: ${err}`);
+                alert(`ERRO. Verifique os dados inseridos e tente novamente.`);
+            }
+            
       }
       
       btnClose.addEventListener('click', ()=> {

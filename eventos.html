@@ -9,7 +9,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <script src="./js/eventos.js" defer></script>
 </head>
 
 <body>
@@ -24,82 +23,36 @@
                 <h2>Todos os Eventos</h2>
             </div>
             <div class="container d-flex justify-content-center align-items-center flex-wrap" id="lista-eventos">
-                <article class="evento card p-5 m-3">
-                    <h2>nome do evento - 05/03/2022</h2>
-                    <h4>Arctic Monkeys, The Kooks, Hiatus Kaiyote</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro aperiam sunt quo similique,
-                        dolorum consectetur inventore ipsam, officiis neque natus eius harum alias quidem. Possimus
-                        nobis in inventore tenetur asperiores.</p>
-                    <a href="#" class="btn btn-primary">reservar ingresso</a>
-                </article>
-                <article class="evento card p-5 m-3">
-                    <h2>nome do evento - 05/03/2022</h2>
-                    <h4>Arctic Monkeys, The Kooks, Hiatus Kaiyote</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro aperiam sunt quo similique,
-                        dolorum consectetur inventore ipsam, officiis neque natus eius harum alias quidem. Possimus
-                        nobis in inventore tenetur asperiores.</p>
-                    <a href="#" class="btn btn-primary">reservar ingresso</a>
-                </article>
-                <article class="evento card p-5 m-3">
-                    <h2>nome do evento - 05/03/2022</h2>
-                    <h4>Arctic Monkeys, The Kooks, Hiatus Kaiyote</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro aperiam sunt quo similique,
-                        dolorum consectetur inventore ipsam, officiis neque natus eius harum alias quidem. Possimus
-                        nobis in inventore tenetur asperiores.</p>
-                    <a href="#" class="btn btn-primary">reservar ingresso</a>
-                </article>
-                <article class="evento card p-5 m-3">
-                    <h2>nome do evento - 05/03/2022</h2>
-                    <h4>Arctic Monkeys, The Kooks, Hiatus Kaiyote</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro aperiam sunt quo similique,
-                        dolorum consectetur inventore ipsam, officiis neque natus eius harum alias quidem. Possimus
-                        nobis in inventore tenetur asperiores.</p>
-                    <a href="#" class="btn btn-primary">reservar ingresso</a>
-                </article>
-                <article class="evento card p-5 m-3">
-                    <h2>nome do evento - 05/03/2022</h2>
-                    <h4>Arctic Monkeys, The Kooks, Hiatus Kaiyote</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro aperiam sunt quo similique,
-                        dolorum consectetur inventore ipsam, officiis neque natus eius harum alias quidem. Possimus
-                        nobis in inventore tenetur asperiores.</p>
-                    <a href="#" class="btn btn-primary">reservar ingresso</a>
-                </article>
-                <article class="evento card p-5 m-3">
-                    <h2>nome do evento - 05/03/2022</h2>
-                    <h4>Arctic Monkeys, The Kooks, Hiatus Kaiyote</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro aperiam sunt quo similique,
-                        dolorum consectetur inventore ipsam, officiis neque natus eius harum alias quidem. Possimus
-                        nobis in inventore tenetur asperiores.</p>
-                    <a href="#" class="btn btn-primary">reservar ingresso</a>
-                </article>
+                
             </div>
             <div class="modal-container" id="modal_container">
                 <div class="modal-class">
                     <div class="modal-conteudo">
                     <h1>Reserve seu ingresso </h1>
+
                     <form id="reservas">
                         <div class="form-input">
                         <label for="nomeCompleto">Nome Completo</label><br>
-                        <input type="text" id="nomeCompleto">
+                        <input type="text" id="nomeCompleto" required>
                         </div >
                         <div class="form-input">
                         <label for="email">Email</label><br>
-                        <input type="email" id="email"><br>
+                        <input type="email" id="email" required><br>
                         </div>
                         <div class="form-input">
-                        <label>Evento</label><br>
+                        <label>Atração</label><br>
                         <select>
-                            <option value="">Exemplo</option>
-                            <option value="">Exemplo</option>
-                            <option value="">Exemplo</option>
+                            <option value="">Exemplo 1</option>
+                            <option value="">Exemplo 2</option>
+                            <option value="">Exemplo 3</option>
                         </select>
                         </div>
                         <div class="form-input">
                         <label for="tickets">Quantidade</label><br>
-                        <input type="number" id="ticket" min="1" max="10">
+                        <input type="number" id="ticket" min="1" max="10" required>
                         </div>
-                        
                     </form>
+
                     <div id="form-buttons">
                     <button>cancelar</button>
                     <button id="concluirReserva">concluir reserva</button>
@@ -107,9 +60,6 @@
                     </div>
                     <button id="close">X</button>
                 </div>
-                
-                
-                
             </div>
         </section>
         <section class="full d-flex justify-content-center align-items-center"
@@ -160,6 +110,7 @@
             </nav>
         </div>
     </footer>
+    <script src="./js/eventos.js" defer></script>
 </body>
 
 </html>
