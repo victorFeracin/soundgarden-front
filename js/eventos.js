@@ -51,7 +51,12 @@ const form = document.querySelector('#reservas');
       }
 
       botaoReserva.onclick = async (evento) => {
-            evento.preventDefault()
+        evento.preventDefault()
+        if(inputTickets.value <= 0) {
+            alert(`Você deve selecionar pelo menos um ticket.`);
+        } else if(inputTickets.value > 10) {
+            alert(`Você só pode escolher no máximo 10 tickets por reserva.`);
+        } else {
             try {
                 const respostaBotao = await fetch(`${BASE_URL}/bookings`, {
                     method: 'POST',
@@ -63,7 +68,6 @@ const form = document.querySelector('#reservas');
                         owner_email: inputEmail.value,
                         number_tickets: Number(inputTickets.value),
                         event_id: botaoReserva.value
-    
                     })
     
                 })
@@ -76,15 +80,13 @@ const form = document.querySelector('#reservas');
                 alert(`ERRO. Verifique os dados inseridos e tente novamente.`);
             }
             
-      }
-      
-      btnClose.addEventListener('click', ()=> {
-          modalContainer.style.display = 'none'
-      })
-      
-      
-  
-
+            btnClose.addEventListener('click', ()=> {
+                modalContainer.style.display = 'none'
+            })
+        }
+        
+            
+    }
   }
 
   
