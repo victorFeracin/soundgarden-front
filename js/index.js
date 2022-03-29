@@ -8,7 +8,7 @@ let continuar = true
 const btnPrimary = document.querySelectorAll('button')
 const btnClose = document.querySelector('#close')
 const modalContainer = document.querySelector('#modal_container')
-
+const cancelaModal = document.querySelector('#cancelaModal')
 
 //início código banner rotativo
 for(let i=0; i < quant.length; i++ ) {
@@ -70,6 +70,9 @@ btnPrimary[i].addEventListener('click', ()=> {
 })
 }
 
+btnClose.addEventListener('click', ()=> {
+    modalContainer.style.display = 'none'
+})
 btnClose.addEventListener('click', ()=> {
     modalContainer.style.display = 'none'
 })
