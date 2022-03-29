@@ -80,13 +80,15 @@ const form = document.querySelector('#reservas');
                 alert(`ERRO. Verifique os dados inseridos e tente novamente.`);
             }
             
-            btnClose.addEventListener('click', ()=> {
-                modalContainer.style.display = 'none'
-            })
+           
         }
         
             
     }
+
+    btnClose.addEventListener('click', ()=> {
+        modalContainer.style.display = 'none'
+    })
   }
 
   
