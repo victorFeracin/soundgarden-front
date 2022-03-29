@@ -3,6 +3,7 @@ const BASE_URL = "https://xp41-soundgarden-api.herokuapp.com";
 
 var divAtual = document.getElementById("lista-eventos");
 
+const cancelaModal = document.querySelector('#cancelaModal')
 const btnClose = document.querySelector('#close')
 const modalContainer = document.querySelector('#modal_container')
 const botaoReserva = document.querySelector('#concluirReserva')
@@ -79,14 +80,14 @@ const form = document.querySelector('#reservas');
                 console.log(`ERRO: ${err}`);
                 alert(`ERRO. Verifique os dados inseridos e tente novamente.`);
             }
-            
-            btnClose.addEventListener('click', ()=> {
-                modalContainer.style.display = 'none'
-            })
-        }
-        
-            
+        }    
     }
+    btnClose.addEventListener('click', ()=> {
+        modalContainer.style.display = 'none'
+    })
+    cancelaModal.addEventListener('click', ()=> {
+        modalContainer.style.display = 'none'
+    })
   }
 
   
