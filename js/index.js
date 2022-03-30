@@ -5,10 +5,19 @@ let imagem = document.querySelector('#atual')
 let next = document.querySelector('#avancar')
 let voltar = document.querySelector('#voltar')
 let continuar = true
-const btnPrimary = document.querySelectorAll('button')
+
+const botaoReserva = document.querySelector('#concluirReserva')
 const btnClose = document.querySelector('#close')
 const modalContainer = document.querySelector('#modal_container')
 const cancelaModal = document.querySelector('#cancelaModal')
+const divModal = document.querySelector('#divAtual')
+const inputNome = document.querySelector('#nomeCompleto')
+const inputEmail = document.querySelector('#email')
+const inputTicket = document.querySelector('#ticket')
+
+
+const BASE_URL = 'https://xp41-soundgarden-api.herokuapp.com'
+
 
 //início código banner rotativo
 for(let i=0; i < quant.length; i++ ) {
@@ -61,18 +70,85 @@ setInterval(()=> {
 }, 4000)
 // final código banner rotativo
 
+// Início código para recuperar eventos e reservar ingresso para um evento específico
 
-for(let i=0; i < btnPrimary.length; i++) {
-btnPrimary[i].addEventListener('click', ()=> {
-    modalContainer.style.display = 'flex'
-    modalContainer.style.justifyContent = 'center'
-    modalContainer.style.alignItems = 'center'
-})
+window.onload = async () => {
+   try {
+
+    const request = await fetch(`${BASE_URL}/events`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+
+    const response = await request.json()
+
+    console.log(response);
+    console.log(response[1]);
+
+    for(let i=0; i < 3; i++) {
+        const newDate = `${response[i].scheduled[8]}${response[i].scheduled[9]}/${response[i].scheduled[5]}${response[i].scheduled[6]}/${response[i].scheduled[0]}${response[i].scheduled[1]}${response[i].scheduled[2]}${response[i].scheduled[3]} `
+        divModal.innerHTML += `<article class="evento card p-5 m-3">
+        <h2>${response[i].name} - ${newDate}</h2>
+        <h4>${response[i].attractions}</h4>
+        <p>${response[i].description}.</p>
+        <button class="btn btn-primary" value=${response[i]._id}>reservar ingresso</button>
+    </article>`
+    }
+
+    const btnPrimary = document.querySelectorAll('.btn-primary')
+    
+    for(let i=0; i < btnPrimary.length; i++) {
+        btnPrimary[i].addEventListener('click', ()=> {
+            modalContainer.style.display = 'flex'
+            modalContainer.style.justifyContent = 'center'
+            modalContainer.style.alignItems = 'center'
+            botaoReserva.value = btnPrimary[i].value
+    })
+    }
+
+    botaoReserva.onclick = async (evento) => {
+        try{
+        evento.preventDefault()
+        const request = await fetch(`${BASE_URL}/bookings`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                owner_name: inputNome.value,
+                owner_email: inputEmail.value,
+                number_tickets: Number(inputTicket.value),
+                event_id: botaoReserva.value
+            })
+        })
+        const response = await request.json()
+        alert('Reserva concluída com sucesso');
+    }   catch(error) {
+        alert('Houve um erro. Prencha os campos corretamente.');
+    }
+
+} 
+    
+
+   } catch(error) {
+       console.log('Houve um erro' + error);
+   }
+
+
+
+    btnClose.addEventListener('click', ()=> {
+        modalContainer.style.display = 'none'
+    })
+
+    cancelaModal.addEventListener('click', () => {
+        modalContainer.style.display = 'none'
+    })
+    
 }
 
-btnClose.addEventListener('click', ()=> {
-    modalContainer.style.display = 'none'
-})
-btnClose.addEventListener('click', ()=> {
-    modalContainer.style.display = 'none'
-})
+
+
+
+
