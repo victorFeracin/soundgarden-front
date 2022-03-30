@@ -31,10 +31,9 @@ button {
 }
 
 .slide {
-    width: 1024px;
+    max-width: 1024px;
     height: 576px;
     overflow: hidden;
-    border-radius: 15px;
     transition: all 0.4s;
 }
 
@@ -55,17 +54,7 @@ button {
 }
 
 .slide-btn {
-    position: absolute;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.4s;
-    font-size: 1.7em;
-    margin-top: -5px;
+    display: none;
 }
 
 .slide-btn:hover {
@@ -83,8 +72,6 @@ button {
 }
 
 .balls {
-    position: absolute;
-    width: 1024px;
     display: flex;
     justify-content: center;
     margin-top: -45px;
