@@ -60,9 +60,12 @@ botaoSubmit.onclick = async (evento) => {
     })
 
     const response = await request.json()
-
     console.log(response);
-
+    if(response.name == 'Validation Error' || response.message == 'Validation Failed' || response.attractions == '' || response.number_tickets <= 0) {
+        alert(`ERRO. Verifique os dados inseridos e tente novamente.`);
+    } else {
+        alert('Evento atualizado com sucesso!');
+    }
 }
 
 function swapData(data) {
