@@ -44,28 +44,34 @@ window.onload = async () => {
 botaoSubmit.onclick = async (evento) => {
     evento.preventDefault()
     const brData = swapData(data.value);
-    const request = await fetch(`${Base_Url}/events/${myParam}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            name: nome.value,
-            poster: banner.value,
-            attractions: atracoes.value.split(','),
-            description: descricao.value,
-            scheduled: brData.toISOString(),
-            number_tickets: Number(lotacao.value)
+    try {
+        const request = await fetch(`${Base_Url}/events/${myParam}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: nome.value,
+                poster: banner.value,
+                attractions: atracoes.value.split(','),
+                description: descricao.value,
+                scheduled: brData.toISOString(),
+                number_tickets: Number(lotacao.value)
+            })
         })
-    })
-
-    const response = await request.json()
-    console.log(response);
-    if(response.name == 'Validation Error' || response.message == 'Validation Failed' || response.attractions == '' || response.number_tickets <= 0) {
+    
+        const response = await request.json()
+        console.log(response);
+        if(response.name == 'Validation Error' || response.message == 'Validation Failed' || response.attractions == '' || response.number_tickets <= 0) {
+            alert(`ERRO. Verifique os dados inseridos e tente novamente.`);
+        } else {
+            alert('Evento atualizado com sucesso!');
+        }
+    } catch(err) {
+        console.log(err);
         alert(`ERRO. Verifique os dados inseridos e tente novamente.`);
-    } else {
-        alert('Evento atualizado com sucesso!');
     }
+    
 }
 
 function swapData(data) {
