@@ -53,6 +53,7 @@ const form = document.querySelector('#reservas');
 
       botaoReserva.onclick = async (evento) => {
         evento.preventDefault()
+
         if(inputTickets.value <= 0) {
             alert(`Você deve selecionar pelo menos um ticket.`);
         } else if(inputTickets.value > 10) {
@@ -75,7 +76,11 @@ const form = document.querySelector('#reservas');
     
                 const respostaFormatada = await respostaBotao.json();
                 console.log(respostaFormatada);
-                alert('Reserva realizada com sucesso!');
+                if(respostaFormatada.name == 'Validation Error' || respostaFormatada.message == 'Validation Failed') {
+                    alert(`ERRO. Verifique os dados inseridos e tente novamente.`);
+                } else {
+                    alert('Reserva realizada com sucesso!');
+                }
             } catch(err) {
                 console.log(`ERRO: ${err}`);
                 alert(`ERRO. Verifique os dados inseridos e tente novamente.`);

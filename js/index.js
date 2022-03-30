@@ -73,7 +73,6 @@ setInterval(()=> {
 // Início código para recuperar eventos e reservar ingresso para um evento específico
 
 window.onload = async () => {
-   try {
 
     const request = await fetch(`${BASE_URL}/events`, {
         method: 'GET',
@@ -109,40 +108,46 @@ window.onload = async () => {
     }
 
     botaoReserva.onclick = async (evento) => {
-        try{
         evento.preventDefault()
-        const request = await fetch(`${BASE_URL}/bookings`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                owner_name: inputNome.value,
-                owner_email: inputEmail.value,
-                number_tickets: Number(inputTicket.value),
-                event_id: botaoReserva.value
-            })
-        })
-        const response = await request.json()
-        alert('Reserva concluída com sucesso');
-    }   catch(error) {
-        alert('Houve um erro. Prencha os campos corretamente.');
+        if(inputTicket.value <= 0) {
+            alert(`Você deve selecionar pelo menos um ticket.`);
+        } else if(inputTicket.value > 10) {
+            alert(`Você só pode escolher no máximo 10 tickets por reserva.`);
+        } else {
+            try {
+                const respostaBotao = await fetch(`${BASE_URL}/bookings`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        owner_name: inputNome.value,
+                        owner_email: inputEmail.value,
+                        number_tickets: Number(inputTicket.value),
+                        event_id: botaoReserva.value
+                    })
+                        
+                })
+                    
+                const respostaFormatada = await respostaBotao.json();
+                console.log(respostaFormatada);
+                if(respostaFormatada.name == 'Validation Error' || respostaFormatada.message == 'Validation Failed') {
+                    alert(`ERRO. Verifique os dados inseridos e tente novamente.`);
+                } else {
+                    alert('Reserva realizada com sucesso!');
+                }
+            } catch(err) {
+                console.log(`ERRO: ${err}`);
+                alert(`ERRO. Verifique os dados inseridos e tente novamente.`);
+            }
+        }    
+        
     }
-
-} 
-    
-
-   } catch(error) {
-       console.log('Houve um erro' + error);
-   }
-
-
 
     btnClose.addEventListener('click', ()=> {
         modalContainer.style.display = 'none'
     })
-
-    cancelaModal.addEventListener('click', () => {
+    cancelaModal.addEventListener('click', ()=> {
         modalContainer.style.display = 'none'
     })
     
