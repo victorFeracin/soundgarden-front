@@ -208,3 +208,9 @@ footer nav ul li  {
     background-color: #C2185B;
     color: #fff;
 }
+
+@media only screen and (max-width: 1024px) {
+    .balls {
+        display: none;
+    }
+}
