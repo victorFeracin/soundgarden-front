@@ -126,7 +126,7 @@ article.evento {
 .modal-class {
     background-color: #fff;
     border-radius: 5px;
-    padding: 30px 50px;
+    padding: 30px 30px;
     width: 50%;
     max-width: 100%;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
@@ -134,7 +134,7 @@ article.evento {
 }
 
 .modal-conteudo {
-    width: 90%;
+    width: 95%;
 }
 
 #close{
