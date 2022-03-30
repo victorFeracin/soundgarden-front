@@ -36,11 +36,15 @@ form.onsubmit = async (event) => {
 
     const respostaConteudo = await resposta.json();
     console.log(respostaConteudo);
-    form.reset();
-    alert(`Evento cadastrado com sucesso!`);
-    
+    if(respostaConteudo.name == 'Validation Error' || respostaConteudo.message == 'Validation Failed' || respostaConteudo.attractions == '' || respostaConteudo.number_tickets <= 0) {
+      alert(`ERRO. Verifique os dados inseridos e tente novamente.`);
+    } else {
+      alert('Evento cadastrado com sucesso!');
+      form.reset();
+    }
   } catch(err) {
-    alert(`ERRO: ${err}`);
+    console.log(`ERRO: ${err}`);
+    alert(`Erro. Verifique os dados inseridos e tente novamente.`)
   }
   
 }
