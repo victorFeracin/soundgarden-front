@@ -13,7 +13,7 @@ window.onload = async () => {
     const response = await resposta.json()
     console.log(response);
 
-    let sequencia = 4
+    let sequencia = 1
 
     response.forEach(item => {
         newDate = `${item.scheduled[8]}${item.scheduled[9]}/${item.scheduled[5]}${item.scheduled[6]}/${item.scheduled[0]}${item.scheduled[1]}${item.scheduled[2]}${item.scheduled[3]}  ${item.scheduled[11]}${item.scheduled[12]}:${item.scheduled[14]}${item.scheduled[15]}`
