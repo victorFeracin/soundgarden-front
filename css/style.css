@@ -111,16 +111,19 @@ article.evento {
     width: 350px;
 }
 
-#divAtual {
+#divAtual, #lista-eventos {
+    margin: 0 auto !important;
     gap: 25px !important;
     margin-bottom: 20px !important;
 } 
 
 article.card{
+    height: 300px !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
     padding: 10px !important;
+    text-align: center;
 }
 
 article.p-5 {
@@ -237,6 +240,11 @@ footer nav ul li  {
     .balls {
         display: none;
     }
+
+    .colImg {
+        display: none !important;
+    }
+
 }
 
 @media only screen and (max-width: 767px) {
@@ -265,6 +273,10 @@ footer nav ul li  {
     #form-buttons {
         justify-content: flex-start;
         gap: 20px;
+    }
+
+    footer img {
+        display: none;
     }
 }
 
