@@ -214,3 +214,9 @@ footer nav ul li  {
         display: none;
     }
 }
+
+@media only screen and (max-width: 640px) {
+    #banner-rotativo {
+        display: none !important;
+    }
+}
