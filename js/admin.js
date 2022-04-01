@@ -2,13 +2,6 @@ const BASE_URL = "https://xp41-soundgarden-api.herokuapp.com";
 
 const trAtual = document.getElementById("tabela-eventos");
 
-// const formataData = (data) => {
-//     let d = data.split('');
-//     let dd = d.slice(8,10).join('') + '/' + d.slice(5,7).join('') + '/' + d.slice(0,4).join('');
-//     let dt = d.slice(11,16).join('')
-//     return `${dd} ${dt}`
-// };
-
 window.onload = async () => {
     const resposta = await fetch(`${BASE_URL}/events`, {
         method: 'GET',

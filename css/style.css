@@ -111,11 +111,10 @@ article.evento {
     width: 350px;
 }
 
-/* div#divAtual.container.d-flex.justify-content-center.align-items-center {
-    padding: 10px !important;
-    margin: 0%;
-    width: 100% !important;
-} */
+#divAtual {
+    gap: 25px !important;
+    margin-bottom: 20px !important;
+} 
 
 article.card{
     display: flex !important;
