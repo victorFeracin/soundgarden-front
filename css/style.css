@@ -194,6 +194,9 @@ footer nav ul li  {
 }
 
 .form-input {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
     width: 50%;
     margin-top: 20px;
 }
@@ -243,6 +246,7 @@ footer nav ul li  {
     }
     
     .modal-class {
+        padding: 30px 5%;
         border-radius: 0px !important;
         width: 100% !important;
         height: 100% !important;
@@ -254,8 +258,13 @@ footer nav ul li  {
         justify-content: center !important;
     }
 
-    .form-input{
+    .form-input {
         width: 100% !important;
+    }
+
+    #form-buttons {
+        justify-content: flex-start;
+        gap: 20px;
     }
 }
 
