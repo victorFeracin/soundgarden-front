@@ -239,10 +239,8 @@ footer nav ul li  {
     }
 }
 
-/* @media (max-width: 1050px) {
-    .slides {
-        width: 780px;
-        display: flex;
-        justify-content: center;
+@media only screen and (max-width: 640px) {
+    #banner-rotativo {
+        display: none !important;
     }
-} */
+}
