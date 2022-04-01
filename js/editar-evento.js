@@ -33,9 +33,9 @@ window.onload = async () => {
         }
     }
     const zeroEsquerdaMonth = ()=>{
-        if(brData.getMonth() <= 9){
+        if(brData.getMonth() < 9){
             const zero = Number (brData.getMonth() + 1)
-        return '0' + zero
+            return '0' + zero
         }else{
             return brData.getMonth() + 1
         }
