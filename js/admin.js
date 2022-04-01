@@ -32,7 +32,7 @@ window.onload = async () => {
                 const zero = Number (brData.getMonth() + 1)
             return '0' + zero
             }else{
-                return brData.getMonth()
+                return brData.getMonth() + 1
             }
         }
         const zeroEsquerdaHours = ()=>{

@@ -28,6 +28,42 @@ window.onload = async () => {
     console.log(reservasFiltradas);
 
     reservasFiltradas.forEach(item => {
+
+        const brData = new Date(item.event.scheduled);
+
+        const zeroEsquerdaDate = ()=>{
+            if(brData.getDate() <= 9){
+                const zero = Number (brData.getDate())
+            return '0' + zero
+            }else{
+                return brData.getDate()
+            }
+        }
+        const zeroEsquerdaMonth = ()=>{
+            if(brData.getMonth() <= 9){
+                const zero = Number (brData.getMonth() + 1)
+            return '0' + zero
+            }else{
+                return brData.getMonth() + 1
+            }
+        }
+        const zeroEsquerdaHours = ()=>{
+            if(brData.getHours() <= 9){
+                const zero = Number (brData.getHours())
+            return '0' + zero
+            }else{
+                return brData.getHours()
+            }
+        }
+        const zeroEsquerdaMinutes = ()=>{
+            if(brData.getMinutes() <= 9){
+                const zero = Number (brData.getMinutes())
+            return '0' + zero
+            }else{
+                return brData.getMinutes()
+            }
+        }
+        
         divForms.innerHTML += `<form class="col-6 form-reservas">
         <div class="mb-3">
             <label for="nome" class="form-label">Nome</label>
@@ -44,7 +80,7 @@ window.onload = async () => {
         <div class="mb-3">
             <label for="data" class="form-label">Data</label>
             <input type="datetime" name="data" id="data" class="form-control"
-                placeholder="00/00/00 00:00" value=${item.event.scheduled} disabled>
+                placeholder="00/00/00 00:00" value=${zeroEsquerdaDate()}/${zeroEsquerdaMonth()}/${brData.getFullYear()} ${zeroEsquerdaHours()}:${zeroEsquerdaMinutes()} disabled>
         </div>
         <div class="mb-3">
             <label for="lotacao" class="form-label">Quantidade de ingressos</label>

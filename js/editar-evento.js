@@ -20,15 +20,7 @@ window.onload = async () => {
 
     const response = await request.json()
     console.log(response);
-
-    const formatNumber = (numero) => {
-        if ( numero < 10 ) {
-            return "0"+numero
-        }
-        return numero
-    }
-
-    
+   
     const {name, poster, attractions, description, scheduled, number_tickets} = response
 
     const brData = new Date(scheduled);
@@ -45,7 +37,7 @@ window.onload = async () => {
             const zero = Number (brData.getMonth() + 1)
         return '0' + zero
         }else{
-            return brData.getMonth()
+            return brData.getMonth() + 1
         }
     }
     const zeroEsquerdaHours = ()=>{
