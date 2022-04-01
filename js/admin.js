@@ -57,10 +57,10 @@ window.onload = async () => {
         <td> ${zeroEsquerdaDate()}/${zeroEsquerdaMonth()}/${brData.getFullYear()} ${zeroEsquerdaHours()}:${zeroEsquerdaMinutes()} </td>
         <td>${item.name}</td>
         <td>${item.attractions}</td>
-        <td>
-            <a href="reservas.html?id=${item._id}" class="btn btn-dark">ver reservas</a>
-            <a href="editar-evento.html?id=${item._id}" class="btn btn-secondary">editar</a>
-            <a href="excluir-evento.html?id=${item._id}" class="btn btn-danger">excluir</a>
+        <td class="containerBtnAdmin">
+            <a href="reservas.html?id=${item._id}" class="btn btn-dark btnAdmin">ver reservas</a>
+            <a href="editar-evento.html?id=${item._id}" class="btn btn-secondary btnAdmin">editar</a>
+            <a href="excluir-evento.html?id=${item._id}" class="btn btn-danger btnAdmin" btnAdmin>excluir</a>
         </td>
     </tr>`
     })

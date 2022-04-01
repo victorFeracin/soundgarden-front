@@ -236,6 +236,16 @@ footer nav ul li  {
     color: #fff;
 }
 
+.containerBtnAdmin {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.btnAdmin {
+    width: 150px;
+}
+
 @media only screen and (max-width: 1024px) {
     .balls {
         display: none;
