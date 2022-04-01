@@ -236,6 +236,30 @@ footer nav ul li  {
     }
 }
 
+@media only screen and (max-width: 767px) {
+    .modal-container {
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+    }
+    
+    .modal-class {
+        border-radius: 0px !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .modal-conteudo form{
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+    }
+
+    .form-input{
+        width: 100% !important;
+    }
+}
+
+
 @media only screen and (max-width: 640px) {
     #banner-rotativo {
         display: none !important;
