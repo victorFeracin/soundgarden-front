@@ -111,6 +111,10 @@ article.evento {
     width: 350px;
 }
 
+.text-center {
+    margin-bottom: 25px;
+}
+
 #divAtual, #lista-eventos {
     margin: 0 auto !important;
     gap: 25px !important;
@@ -118,9 +122,9 @@ article.evento {
 } 
 
 article.card{
-    height: 300px !important;
+    height: 350px !important;
     display: flex !important;
-    justify-content: center !important;
+    justify-content: space-between !important;
     align-items: center !important;
     padding: 10px !important;
     text-align: center;
