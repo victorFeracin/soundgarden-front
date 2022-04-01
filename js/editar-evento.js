@@ -31,13 +31,47 @@ window.onload = async () => {
     
     const {name, poster, attractions, description, scheduled, number_tickets} = response
 
-    newDate = `${scheduled[5]}${scheduled[6]}/${scheduled[8]}${scheduled[9]}/${scheduled[0]}${scheduled[1]}${scheduled[2]}${scheduled[3]} ${scheduled[11]}${scheduled[12]}:${scheduled[14]}${scheduled[15]} `
+    const brData = new Date(scheduled);
+    const zeroEsquerdaDate = ()=>{
+        if(brData.getDate() <= 9){
+            const zero = Number (brData.getDate())
+        return '0' + zero
+        }else{
+            return brData.getDate()
+        }
+    }
+    const zeroEsquerdaMonth = ()=>{
+        if(brData.getMonth() <= 9){
+            const zero = Number (brData.getMonth() + 1)
+        return '0' + zero
+        }else{
+            return brData.getMonth()
+        }
+    }
+    const zeroEsquerdaHours = ()=>{
+        if(brData.getHours() <= 9){
+            const zero = Number (brData.getHours())
+        return '0' + zero
+        }else{
+            return brData.getHours()
+        }
+    }
+    const zeroEsquerdaMinutes = ()=>{
+        if(brData.getMinutes() <= 9){
+            const zero = Number (brData.getMinutes())
+        return '0' + zero
+        }else{
+            return brData.getMinutes()
+        }
+    }
+
+    console.log(brData);
 
     nome.value = name
     banner.value = poster
     atracoes.value = [attractions],
     descricao.value = description,
-    data.value = newDate,
+    data.value = `${zeroEsquerdaDate()}/${zeroEsquerdaMonth()}/${brData.getFullYear()} ${zeroEsquerdaHours()}:${zeroEsquerdaMinutes()}`
     lotacao.value = number_tickets
 }
 
