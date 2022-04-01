@@ -275,6 +275,14 @@ footer nav ul li  {
     width: 150px;
 }
 
+.tableContainer {
+    margin: 0 auto;
+}
+
+.arrows {
+    display: none;
+}
+
 @media only screen and (max-width: 1024px) {
     .balls {
         display: none;
@@ -326,6 +334,26 @@ footer nav ul li  {
     }
 }
 
+@media only screen and (max-width: 667px) {
+    .mainAdmin {
+        margin: 0 auto;
+    }
+
+    .tableContainer {
+        overflow-x: scroll;
+    }
+
+    .table {
+        background-color: #F8F9FA;
+    }
+
+    .arrows {
+        display: flex;
+        margin: 50px auto 25px auto;
+        justify-content: center;
+        gap: 60px;
+    }
+}
 
 @media only screen and (max-width: 640px) {
     #banner-rotativo {
@@ -341,6 +369,15 @@ footer nav ul li  {
         width: 100%;
         text-align: center;
         display: block    
+    }
+
+    .mainAdmin h1 {
+        text-align: center;
+    }
+    
+    .novoEvento {
+        display: block;
+        margin: 20px auto;
     }
 }
     
