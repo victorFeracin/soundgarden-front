@@ -43,8 +43,6 @@ button {
 .slides {
     /* width: 5120px; */
     display: flex;
-    justify-content: center;
-
 }
 
 .images img{
