@@ -2,6 +2,13 @@ const BASE_URL = "https://xp41-soundgarden-api.herokuapp.com";
 
 const trAtual = document.getElementById("tabela-eventos");
 
+const formataData = (data) => {
+    let d = data.split('');
+    let dd = d.slice(8,10).join('') + '/' + d.slice(5,7).join('') + '/' + d.slice(0,4).join('');
+    let dt = d.slice(11,16).join('')
+    return `${dd} ${dt}`
+};
+
 window.onload = async () => {
     const resposta = await fetch(`${BASE_URL}/events`, {
         method: 'GET',
@@ -16,10 +23,9 @@ window.onload = async () => {
     let sequencia = 1
 
     response.forEach(item => {
-        newDate = `${item.scheduled[8]}${item.scheduled[9]}/${item.scheduled[5]}${item.scheduled[6]}/${item.scheduled[0]}${item.scheduled[1]}${item.scheduled[2]}${item.scheduled[3]}  ${item.scheduled[11]}${item.scheduled[12]}:${item.scheduled[14]}${item.scheduled[15]}`
         trAtual.innerHTML += `<tr>
         <th scope="row">${sequencia++}</th>
-        <td>${newDate}</td>
+        <td>${formataData(item.scheduled)}</td>
         <td>${item.name}</td>
         <td>${item.attractions}</td>
         <td>
@@ -29,5 +35,4 @@ window.onload = async () => {
         </td>
     </tr>`
     })
-
 }
