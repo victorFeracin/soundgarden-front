@@ -14,9 +14,9 @@ header {
     background-color: #fff;
 }
 
-aside {
+/* aside {
     min-height: 100vh;
-}
+} */
 
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
     background-color: #C2185B;
@@ -236,6 +236,35 @@ footer nav ul li  {
     color: #fff;
 }
 
+.row {
+    flex-direction: column;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.upperMenuContainer {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menuText {
+    width: 100%;
+    border-top: 1px solid #d8d9da;
+    font-weight: 700;
+    margin: 0;
+    padding: 16px 0;
+}
+
+.imgPContainer {
+    max-width: 100px;
+}
+
 .containerBtnAdmin {
     display: flex;
     flex-direction: column;
@@ -296,3 +325,15 @@ footer nav ul li  {
         display: none !important;
     }
 }
+
+@media only screen and (max-width: 580px) {
+    .upperMenuContainer {
+        flex-direction: column;
+    }
+    .nav {
+        width: 100%;
+        text-align: center;
+        display: block    
+    }
+}
+    
