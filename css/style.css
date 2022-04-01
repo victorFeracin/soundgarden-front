@@ -314,6 +314,13 @@ footer nav ul li  {
         gap: 20px;
     }
 
+
+    .main .col-6{
+        width: 100% !important;
+    }
+
+
+
     footer img {
         display: none;
     }
